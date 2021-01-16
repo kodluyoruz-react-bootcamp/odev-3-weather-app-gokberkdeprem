@@ -1,7 +1,8 @@
 import { cities } from "../../constants";
-
 import React from "react";
 
+//1-dropdown component is created with select and option tags
+//1-city names are taken from a constants file
 function Header() {
   return (
     <div>
