@@ -14,10 +14,10 @@ export const WeatherProvider = ({ children }) => {
   const [weather, setWeather] = useState();
 
   useEffect(() => {
-    const url = `${API_ENDPOINT}/forecast?q=adana&appid=${process.env.REACT_APP_KEY}&units=metric&cnt=7`;
+    const url = `${API_ENDPOINT}/forecast?q=${selected}&appid=${process.env.REACT_APP_KEY}&units=metric&exclude=minutely`;
 
     axios(url).then((response) => setWeather(response.data));
-  }, []);
+  }, [selected]);
 
   //transported values
   const values = {

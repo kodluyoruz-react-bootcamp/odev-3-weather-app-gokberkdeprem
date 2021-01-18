@@ -1,5 +1,7 @@
 import { useContext } from "react";
+import styles from "./index.module.css";
 import WeatherContext from "../../context/WeatherContext";
+import Card from "../Card";
 
 function List() {
   const { weather } = useContext(WeatherContext);
@@ -8,7 +10,11 @@ function List() {
     <div>
       <pre>{JSON.stringify(weather?.city, null, 2)}</pre>
 
-      <div>{weather?.list.map((day, index) => console.log(day))}</div>
+      <div className={styles.listContainer}>
+        {weather?.list.map((day, index) => (
+          <Card day={day} key={index}></Card>
+        ))}
+      </div>
     </div>
   );
 }
