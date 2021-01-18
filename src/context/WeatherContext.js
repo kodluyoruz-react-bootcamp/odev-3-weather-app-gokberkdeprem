@@ -11,19 +11,24 @@ export const WeatherProvider = ({ children }) => {
   //holds selected city, Adana by default
   const [selected, setSelected] = useState("Adana");
   //holds weather information of selected city
-  const [weather, setWeather] = useState(null);
+  const [weather, setWeather] = useState();
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=istanbul&appid=${process.env.REACT_APP_KEY}&units=metric&cnt=7`;
+    const url = `${API_ENDPOINT}/forecast?q=adana&appid=${process.env.REACT_APP_KEY}&units=metric&cnt=7`;
 
-    axios.get(url).then((response) => console.log(response.data));
-  }, [selected]);
+    axios(url).then((response) => setWeather(response.data));
+  }, []);
 
-  console.log(weather);
+  //transported values
+  const values = {
+    selected,
+    setSelected,
+    weather,
+    setWeather,
+  };
+
   return (
-    <WeatherContext.Provider value={selected}>
-      {children}
-    </WeatherContext.Provider>
+    <WeatherContext.Provider value={values}>{children}</WeatherContext.Provider>
   );
 };
 

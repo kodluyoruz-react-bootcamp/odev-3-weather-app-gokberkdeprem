@@ -649,4 +649,4 @@ export const cities = [
   },
 ];
 
-export const API_ENDPOINT = `api.openweathermap.org/data/2.5`;
+export const API_ENDPOINT = `https://api.openweathermap.org/data/2.5`;

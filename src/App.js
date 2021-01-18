@@ -1,11 +1,13 @@
 import "./App.css";
-import Header from "./components/header";
+import Container from "./Container";
+import List from "./components/List";
+
 import { WeatherProvider } from "./context/WeatherContext";
 
 function App() {
   return (
     <WeatherProvider>
-      <Header></Header>;
+      <Container />
     </WeatherProvider>
   );
 }
